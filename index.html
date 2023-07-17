@@ -16,10 +16,10 @@
       </div>
       <div class="card">
         <div class="card-upper-grid">
-          <p class="card-pageviews">X Pageviews</p>
-          <input type="range" class="card-slider" />
+          <p class="card-pageviews" id="pageviews">X Pageviews</p>
+          <input type="range" class="card-slider" id="slider" />
           <div class="card-pricing">
-            <p class="pricing-price">X$</p>
+            <p class="pricing-price" id="price">X$</p>
             <span class="pricing-desc">/ month</span>
           </div>
         </div>
@@ -27,16 +27,22 @@
           <div><p class="billing-monthly-p">Monthly Billing</p></div>
 
           <label class="switch">
-            <input type="checkbox" class="switch-checkbox" />
+            <input type="checkbox" class="switch-checkbox" id="switch" />
             <div class="switch-slider"></div>
           </label>
 
           <div class="billing-yearly">
             <p class="billing-yearly-p">Yearly Billing</p>
             <div class="billing-yearly-promo-div">
-              <span class="billing-yearly-promo-span mobile">-25%</span>
-              <span class="billing-yearly-promo-span desktop"
-                >-25% discount</span
+              <span
+                class="billing-yearly-promo-span mobile"
+                id="discount-mobile"
+                >-x%</span
+              >
+              <span
+                class="billing-yearly-promo-span desktop"
+                id="discount-desktop"
+                >-x% discount</span
               >
             </div>
           </div>
@@ -69,7 +75,7 @@
               <p class="checkboxes-item-p">Email reports</p>
             </div>
           </div>
-          <button class="button">Start my trial</button>
+          <button class="button" id="button">Start my trial</button>
         </div>
       </div>
     </div>
