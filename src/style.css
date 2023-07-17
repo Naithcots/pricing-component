@@ -103,14 +103,16 @@ body::after {
   margin: 0;
   margin-bottom: 2rem;
   text-transform: uppercase;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.5px;
 
   color: var(--grayish-blue);
 }
 
 .card-slider {
   display: block;
-  margin-block: 1rem;
+  margin: 2rem auto;
+
+  max-width: 90%;
 
   appearance: none;
   width: 100%;
@@ -147,7 +149,7 @@ body::after {
 }
 
 .card-pricing {
-  margin-block: 2rem;
+  margin-block: 2.5rem 1.75rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -156,8 +158,8 @@ body::after {
 
 .pricing-price {
   margin: 0;
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 2.25rem;
+  font-weight: 800;
 }
 
 .pricing-desc {
@@ -393,7 +395,7 @@ body::after {
   }
 
   .card-upper-grid {
-    margin-bottom: 1.5rem;
+    margin-block: 1.5rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
@@ -407,13 +409,21 @@ body::after {
     align-items: center;
   }
 
-  .pricing {
+  .card-pricing {
     order: 1;
+
+    margin: 0;
+  }
+
+  .pricing-price {
+    font-size: 2.5rem;
   }
 
   .card-slider {
     order: 2;
     grid-column: span 2;
+
+    max-width: 85%;
   }
 
   .billing {
@@ -460,6 +470,6 @@ body::after {
   }
 
   .modal-window-total {
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
   }
 }
