@@ -11,6 +11,14 @@ const discountMobileElem: HTMLSpanElement =
 const discountDesktopElem: HTMLSpanElement =
   document.querySelector("#discount-desktop")!;
 const buttonElem: HTMLButtonElement = document.querySelector("#button")!;
+const modalElem: HTMLDivElement = document.querySelector("#modal")!;
+const modalCloseElem: HTMLButtonElement =
+  document.querySelector("#modal-close")!;
+const planElem: HTMLSpanElement = document.querySelector("#plan")!;
+const monthlyCostElem: HTMLSpanElement =
+  document.querySelector("#monthly-cost")!;
+const totalCostElem: HTMLParagraphElement =
+  document.querySelector("#total-cost")!;
 
 const plans: Plan[] = [
   { id: 0, pageViews: 10000, pageViewsText: "10k", pricePerMonth: 8 },
@@ -25,14 +33,15 @@ let selectedPlan = plans[2];
 let selectedBilling: Billing = "monthly";
 const yearlyDiscountValue = 0.25;
 
+const getPricePerMonth = () =>
+  selectedBilling === "yearly"
+    ? (1 - yearlyDiscountValue) * selectedPlan.pricePerMonth
+    : selectedPlan.pricePerMonth;
+
 const updateView = () => {
   pageViewsElem.textContent = `${selectedPlan.pageViewsText} pageviews`;
-  if (selectedBilling === "monthly")
-    priceElem.textContent = `${selectedPlan.pricePerMonth.toFixed(2)}$`;
-  else {
-    const updatedCost = (1 - yearlyDiscountValue) * selectedPlan.pricePerMonth;
-    priceElem.textContent = `${updatedCost.toFixed(2)}$`;
-  }
+  const cost = getPricePerMonth();
+  priceElem.textContent = `${cost.toFixed(2)}$`;
 };
 
 const setSelectedPlan = (id: number) => {
@@ -89,12 +98,24 @@ const setupDiscounts = (
 
 const buttonOnClickCallback = () => {
   if (!selectedPlan || !selectedBilling) return;
-
   console.log(selectedPlan, selectedBilling, yearlyDiscountValue);
+
+  openModal();
 };
 
 const setupButton = (buttonElem: HTMLButtonElement) =>
   buttonElem.addEventListener("click", buttonOnClickCallback);
+
+const openModal = () => {
+  planElem.textContent = `${selectedPlan.pageViewsText} Pageviews`;
+
+  const cost = getPricePerMonth();
+
+  monthlyCostElem.textContent = `${cost.toFixed(2)}$`;
+  totalCostElem.textContent = `Total: ${(cost * 12).toFixed(2)}$ /yr`;
+
+  modalElem.classList.add("open");
+};
 
 const setupApp = (
   plans: Plan[],
@@ -109,6 +130,10 @@ const setupApp = (
     yearlyDiscountValue
   );
   setupButton(buttonElem);
+
+  modalCloseElem.addEventListener("click", () =>
+    modalElem.classList.remove("open")
+  );
 };
 
 setupApp(plans, selectedPlan, selectedBilling);

@@ -302,6 +302,83 @@ body::after {
   color: white;
 }
 
+.modal {
+  display: none;
+
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  position: absolute;
+  inset: 0;
+
+  place-items: center;
+
+  isolation: isolate;
+  z-index: 100;
+}
+
+.modal.open {
+  display: grid;
+}
+
+.modal-bg {
+  position: absolute;
+  inset: 0;
+
+  background-color: rgba(20, 20, 20, 0.5);
+  backdrop-filter: blur(2px);
+
+  z-index: 1;
+}
+
+.modal-window {
+  min-width: 75%;
+  position: relative;
+  padding: 1.5rem 2rem;
+
+  border-radius: 1rem;
+  z-index: 2;
+
+  background-color: white;
+}
+
+.modal-window-title {
+  margin-top: 0;
+}
+
+.modal-window-exit {
+  appearance: none;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+
+  border: none;
+  font-size: 1.25rem;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  color: rgb(207, 0, 0);
+  background-color: transparent;
+}
+
+.modal-window-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-window-summary {
+  text-align: center;
+}
+
+.modal-window-total {
+  margin-bottom: 0;
+
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+
 @media screen and (min-width: 40em) {
   .card {
     padding-top: 0.5rem;
@@ -371,5 +448,18 @@ body::after {
     margin: 0;
     max-width: 13.5rem;
     justify-self: right;
+  }
+
+  .modal-window {
+    min-width: 30em;
+  }
+
+  .modal-window-summary {
+    width: fit-content;
+    margin-left: auto;
+  }
+
+  .modal-window-total {
+    margin-bottom: 0.75rem;
   }
 }
