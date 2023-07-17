@@ -146,7 +146,7 @@ body::after {
   background: url("/images/icon-slider.svg");
 }
 
-.pricing {
+.card-pricing {
   margin-block: 2rem;
   display: flex;
   justify-content: center;
@@ -175,6 +175,10 @@ body::after {
   font-weight: 600;
 
   color: var(--grayish-blue);
+}
+
+.billing-yearly-promo-span.desktop {
+  display: none;
 }
 
 .switch {
@@ -296,4 +300,76 @@ body::after {
 
 .button:hover {
   color: white;
+}
+
+@media screen and (min-width: 40em) {
+  .card {
+    padding-top: 0.5rem;
+  }
+
+  .info-h3 {
+    font-size: 2rem;
+  }
+
+  .info-p {
+    width: auto;
+  }
+
+  .card-upper-grid {
+    margin-bottom: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-pageviews {
+    order: 0;
+
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pricing {
+    order: 1;
+  }
+
+  .card-slider {
+    order: 2;
+    grid-column: span 2;
+  }
+
+  .billing {
+    margin-inline: 5rem;
+    justify-content: center;
+    transform: translateX(3.3rem);
+  }
+
+  .billing-yearly-promo-span.mobile {
+    display: none;
+  }
+
+  .billing-yearly-promo-span.desktop {
+    display: block;
+  }
+
+  .card-lower-grid {
+    padding-inline: 1.25rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .checkboxes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .button {
+    margin: 0;
+    max-width: 13.5rem;
+    justify-self: right;
+  }
 }

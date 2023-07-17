@@ -15,11 +15,13 @@
         </p>
       </div>
       <div class="card">
-        <p class="card-pageviews">X Pageviews</p>
-        <input type="range" class="card-slider" />
-        <div class="pricing">
-          <p class="pricing-price">X$</p>
-          <span class="pricing-desc">/ month</span>
+        <div class="card-upper-grid">
+          <p class="card-pageviews">X Pageviews</p>
+          <input type="range" class="card-slider" />
+          <div class="card-pricing">
+            <p class="pricing-price">X$</p>
+            <span class="pricing-desc">/ month</span>
+          </div>
         </div>
         <div class="billing">
           <div><p class="billing-monthly-p">Monthly Billing</p></div>
@@ -32,38 +34,43 @@
           <div class="billing-yearly">
             <p class="billing-yearly-p">Yearly Billing</p>
             <div class="billing-yearly-promo-div">
-              <span class="billing-yearly-promo-span">-25%</span>
+              <span class="billing-yearly-promo-span mobile">-25%</span>
+              <span class="billing-yearly-promo-span desktop"
+                >-25% discount</span
+              >
             </div>
           </div>
         </div>
         <div class="divider"></div>
-        <div class="checkboxes">
-          <div class="checkboxes-item">
-            <img
-              src="/images/icon-check.svg"
-              alt="icon-check"
-              class="checkboxes-item-img"
-            />
-            <p class="checkboxes-item-p">Unlimited websites</p>
+        <div class="card-lower-grid">
+          <div class="checkboxes">
+            <div class="checkboxes-item">
+              <img
+                src="/images/icon-check.svg"
+                alt="icon-check"
+                class="checkboxes-item-img"
+              />
+              <p class="checkboxes-item-p">Unlimited websites</p>
+            </div>
+            <div class="checkboxes-item">
+              <img
+                src="/images/icon-check.svg"
+                alt="icon-check"
+                class="checkboxes-item-img"
+              />
+              <p class="checkboxes-item-p">100% data ownership</p>
+            </div>
+            <div class="checkboxes-item">
+              <img
+                src="/images/icon-check.svg"
+                alt="icon-check"
+                class="checkboxes-item-img"
+              />
+              <p class="checkboxes-item-p">Email reports</p>
+            </div>
           </div>
-          <div class="checkboxes-item">
-            <img
-              src="/images/icon-check.svg"
-              alt="icon-check"
-              class="checkboxes-item-img"
-            />
-            <p class="checkboxes-item-p">100% data ownership</p>
-          </div>
-          <div class="checkboxes-item">
-            <img
-              src="/images/icon-check.svg"
-              alt="icon-check"
-              class="checkboxes-item-img"
-            />
-            <p class="checkboxes-item-p">Email reports</p>
-          </div>
+          <button class="button">Start my trial</button>
         </div>
-        <button class="button">Start my trial</button>
       </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
