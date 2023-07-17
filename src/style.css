@@ -20,12 +20,17 @@
   /* Units */
   --card-padding: 1.5rem;
 
+  /* Slider */
+  --slider-thumb-width: 2.5rem;
+  --slider-thumb-magic-value: -1rem;
+
+  /* Switch */
   --switch-width: 3.5rem;
   --switch-height: 1.85rem;
-  --slider-width: 1.35rem;
-  --slider-offset: 0.3rem;
+  --switch-slider-width: 1.35rem;
+  --switch-slider-offset: 0.3rem;
+  --switch-slider-magic-value: 13%;
   /* No JS workaround */
-  --slider-magic-value: 13%;
 }
 
 * {
@@ -108,46 +113,6 @@ body::after {
   color: var(--grayish-blue);
 }
 
-.card-slider {
-  display: block;
-  margin: 2rem auto;
-
-  max-width: 90%;
-
-  appearance: none;
-  width: 100%;
-
-  background-color: var(--light-grayish-blue-slider);
-  accent-color: var(--strong-cyan);
-}
-
-.card-slider::-webkit-slider-thumb {
-  position: relative;
-  width: 2.5rem;
-  margin-top: -1rem;
-
-  appearance: none;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  cursor: pointer;
-
-  background: url("/images/icon-slider.svg");
-  background-color: var(--strong-cyan);
-  background-size: 65%;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.card-slider::-webkit-slider-runnable-track {
-  height: 0.5rem;
-  border-radius: 4rem;
-  background-color: var(--light-grayish-blue-slider);
-}
-
-.card-slider::-moz-range-thumb {
-  background: url("/images/icon-slider.svg");
-}
-
 .card-pricing {
   margin-block: 2.5rem 1.75rem;
   display: flex;
@@ -201,13 +166,13 @@ body::after {
 
 .switch-slider {
   position: absolute;
-  width: var(--slider-width);
+  width: var(--switch-slider-width);
   aspect-ratio: 1 / 1;
 
   border-radius: 50%;
 
-  top: var(--slider-magic-value);
-  left: var(--slider-offset);
+  top: var(--switch-slider-magic-value);
+  left: var(--switch-slider-offset);
   transition: transform 250ms;
 
   background-color: white;
@@ -215,7 +180,8 @@ body::after {
 
 .switch:has(input:checked) .switch-slider {
   --x: calc(
-    var(--switch-width) - var(--slider-width) - 2 * var(--slider-offset)
+    var(--switch-width) - var(--switch-slider-width) - 2 *
+      var(--switch-slider-offset)
   );
 
   transform: translateX(var(--x));
@@ -424,6 +390,7 @@ body::after {
     grid-column: span 2;
 
     max-width: 85%;
+    margin-block: 2rem;
   }
 
   .billing {
@@ -471,5 +438,110 @@ body::after {
 
   .modal-window-total {
     margin-bottom: 1.5rem;
+  }
+}
+
+input[type="range"] {
+  width: 100%;
+  margin-inline: auto;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: var(--light-grayish-blue-slider);
+  border-radius: 1px;
+  width: 100%;
+  height: 0.5rem;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  margin-top: var(--slider-thumb-magic-value);
+  width: var(--slider-thumb-width);
+  height: var(--slider-thumb-width);
+  background: var(--strong-cyan);
+  background-image: url("/images/icon-slider.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-moz-range-track {
+  background: var(--light-grayish-blue-slider);
+  border-radius: 1px;
+  width: 100%;
+  height: 0.5rem;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-progress {
+  height: 0.5rem;
+  cursor: pointer;
+
+  background: var(--soft-cyan);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: var(--slider-thumb-width);
+  height: var(--slider-thumb-width);
+  background: var(--strong-cyan);
+  background-image: url("/images/icon-slider.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 8.45px 0;
+  color: transparent;
+  width: 100%;
+  height: 0.5rem;
+  cursor: pointer;
+}
+
+input[type="range"]::-ms-fill-lower {
+  background: var(--soft-cyan);
+  border: none;
+  border-radius: 2px;
+}
+
+input[type="range"]::-ms-fill-upper {
+  background: var(--light-grayish-blue-slider);
+  border: none;
+  border-radius: 2px;
+}
+
+input[type="range"]::-ms-thumb {
+  width: var(--slider-thumb-width);
+  height: var(--slider-thumb-width);
+  background: var(--strong-cyan);
+  background-image: url("/images/icon-slider.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  margin-top: 0px;
+  /*Needed to keep the Edge thumb centred*/
+}
+
+@supports (-ms-ime-align: auto) {
+  /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+  input[type="range"] {
+    margin: 0;
+    /*Edge starts the margin from the thumb, not the track as other browsers do*/
   }
 }
