@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/pricing-component/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive pricing component</title>
+    <script type="module" crossorigin src="/pricing-component/assets/index-d55925e6.js"></script>
+    <link rel="stylesheet" href="/pricing-component/assets/index-09def267.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="info">
+        <h3 class="info-h3">Simple, traffic-based pricing</h3>
+        <p class="info-p">
+          Sign-up for our 30-day trial. No credit card required.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-upper-grid">
+          <p class="card-pageviews" id="pageviews">X Pageviews</p>
+          <input type="range" class="card-slider" id="slider" />
+          <div class="card-pricing">
+            <p class="pricing-price" id="price">X$</p>
+            <span class="pricing-desc">/ month</span>
+          </div>
+        </div>
+        <div class="billing">
+          <div><p class="billing-monthly-p">Monthly Billing</p></div>
+
+          <label class="switch">
+            <input type="checkbox" class="switch-checkbox" id="switch" />
+            <div class="switch-slider"></div>
+          </label>
+
+          <div class="billing-yearly">
+            <p class="billing-yearly-p">Yearly Billing</p>
+            <div class="billing-yearly-promo-div">
+              <span
+                class="billing-yearly-promo-span mobile"
+                id="discount-mobile"
+                >-x%</span
+              >
+              <span
+                class="billing-yearly-promo-span desktop"
+                id="discount-desktop"
+                >-x% discount</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="card-lower-grid">
+          <div class="checkboxes">
+            <div class="checkboxes-item">
+              <img
+                src="/pricing-component/images/icon-check.svg"
+                alt="icon-check"
+                class="checkboxes-item-img"
+              />
+              <p class="checkboxes-item-p">Unlimited websites</p>
+            </div>
+            <div class="checkboxes-item">
+              <img
+                src="/pricing-component/images/icon-check.svg"
+                alt="icon-check"
+                class="checkboxes-item-img"
+              />
+              <p class="checkboxes-item-p">100% data ownership</p>
+            </div>
+            <div class="checkboxes-item">
+              <img
+                src="/pricing-component/images/icon-check.svg"
+                alt="icon-check"
+                class="checkboxes-item-img"
+              />
+              <p class="checkboxes-item-p">Email reports</p>
+            </div>
+          </div>
+          <button class="button" id="button">Start my trial</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="modal">
+      <div class="modal-bg"></div>
+      <div class="modal-window">
+        <button class="modal-window-exit" id="modal-close">X</button>
+        <h2 class="modal-window-title">Confirm Plan</h2>
+        <div>
+          <div class="modal-window-flex">
+            <p>Selected Plan</p>
+            <span id="plan">x</span>
+          </div>
+          <div class="modal-window-flex">
+            <p>Monthly Cost</p>
+            <span id="monthly-cost">x</span>
+          </div>
+        </div>
+        <div class="modal-window-summary">
+          <p class="modal-window-total" id="total-cost">Total x/yr</p>
+          <button class="button modal-window-summary-button">Proceed</button>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+</html>
