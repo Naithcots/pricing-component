@@ -63,6 +63,10 @@ body::after {
   z-index: -1;
 }
 
+.no-scroll {
+  overflow-y: hidden;
+}
+
 .info {
   position: relative;
   margin-block: 3rem;
@@ -94,7 +98,7 @@ body::after {
 .card {
   margin-inline: var(--card-padding);
   margin-bottom: 2rem;
-  padding: 2rem 1.25rem;
+  padding: 2rem 0.7rem;
   overflow: hidden;
 
   text-align: center;
@@ -136,12 +140,16 @@ body::after {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.5rem;
 
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 600;
 
   color: var(--grayish-blue);
+}
+
+.billing-yearly-promo-span.mobile {
+  font-size: 0.8rem;
 }
 
 .billing-yearly-promo-span.desktop {
@@ -273,10 +281,9 @@ body::after {
 .modal {
   display: none;
 
-  position: relative;
   height: 100vh;
   height: 100dvh;
-  position: absolute;
+  position: fixed;
   inset: 0;
 
   place-items: center;
@@ -300,9 +307,9 @@ body::after {
 }
 
 .modal-window {
-  min-width: 75%;
+  min-width: 85%;
   position: relative;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem;
 
   border-radius: 1rem;
   z-index: 2;
@@ -442,7 +449,7 @@ body::after {
 }
 
 input[type="range"] {
-  width: 100%;
+  width: 90%;
   margin-inline: auto;
   background-color: transparent;
   -webkit-appearance: none;

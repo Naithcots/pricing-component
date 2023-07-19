@@ -114,6 +114,7 @@ const openModal = () => {
   monthlyCostElem.textContent = `${cost.toFixed(2)}$`;
   totalCostElem.textContent = `Total: ${(cost * 12).toFixed(2)}$ /yr`;
 
+  document.body.classList.add("no-scroll");
   modalElem.classList.add("open");
 };
 
@@ -131,9 +132,10 @@ const setupApp = (
   );
   setupButton(buttonElem);
 
-  modalCloseElem.addEventListener("click", () =>
-    modalElem.classList.remove("open")
-  );
+  modalCloseElem.addEventListener("click", () => {
+    modalElem.classList.remove("open");
+    document.body.classList.remove("no-scroll");
+  });
 };
 
 setupApp(plans, selectedPlan, selectedBilling);
